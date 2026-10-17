@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Blog</title>
+  <meta name="description" content="마크다운으로 쓰는 블로그">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <script>
+    // FOUC 방지: 렌더링 전에 저장된 테마를 적용한다.
+    (function () {
+      try {
+        var t = localStorage.getItem('theme');
+        if (t === 'dark' || t === 'light') document.documentElement.dataset.theme = t;
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/post.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="site-title" href="#/">My Blog</a>
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="테마 전환">
+        <span aria-hidden="true" class="theme-toggle__icon"></span>
+      </button>
+    </div>
+  </header>
+
+  <main class="container" id="app" aria-live="polite"></main>
+
+  <footer class="site-footer">
+    <div class="container">© <span id="year"></span> My Blog</div>
+  </footer>
+
+  <script src="js/vendor/marked.min.js"></script>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
