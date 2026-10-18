@@ -95,8 +95,37 @@
   font-size: .875rem;
 }
 
+/* 미니 웹앱 섹션은 글 목록 화면에서만 보인다 (#app은 JS가 통째로 다시 그리므로 밖에 둔다). */
+.apps { display: none; padding-block: 0 3rem; }
+body:has(.post-list) .apps { display: block; }
+body:has(.post-list) #app { min-height: 0; }
+
+.apps__heading { margin: 0 0 1rem; font-size: 1.25rem; }
+
+.app-card {
+  padding: 1.25rem;
+  border: 1px solid var(--border);
+  border-radius: .5rem;
+}
+.app-card__title { margin: 0 0 .25rem; font-size: 1.125rem; }
+.app-card__desc { margin: 0 0 1rem; color: var(--muted); font-size: .9375rem; }
+.app-card__frame {
+  display: block;
+  width: 100%;
+  height: 32rem;
+  border: 1px solid var(--border);
+  border-radius: .375rem;
+}
+.app-card__link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin-top: .5rem;
+}
+
 @media (min-width: 640px) {
   .container { padding-inline: 1.5rem; }
   #app { padding-block: 3rem 4rem; }
   .page-title { font-size: 1.75rem; }
+  .apps { padding-block: 0 4rem; }
 }
