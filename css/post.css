@@ -6,7 +6,7 @@
 .prose > :first-child { margin-top: 0; }
 
 .prose h2, .prose h3, .prose h4 { line-height: 1.35; margin: 2.2em 0 .6em; }
-.prose h2 { font-size: 1.4rem; padding-bottom: .3em; border-bottom: 1px solid var(--border); }
+.prose h2 { font-size: 1.4rem; padding-bottom: .3em; border-bottom: var(--rule) solid var(--border); }
 .prose h3 { font-size: 1.2rem; }
 .prose h4 { font-size: 1.05rem; }
 
@@ -17,7 +17,7 @@
 
 .prose blockquote {
   padding: .1em 1em;
-  border-left: 4px solid var(--accent);
+  border-left: var(--rule) solid var(--accent);
   color: var(--muted);
   background: var(--card-bg);
 }
@@ -27,7 +27,7 @@
   font-family: var(--font-mono);
   font-size: .9em;
   padding: .15em .4em;
-  border-radius: 4px;
+  border-radius: 0;
   background: var(--code-bg);
   word-break: break-all;
 }
@@ -35,7 +35,7 @@
 .prose pre {
   overflow-x: auto;
   padding: 1rem;
-  border-radius: 8px;
+  border-radius: 0;
   background: var(--code-bg);
   line-height: 1.55;
   -webkit-overflow-scrolling: touch;
@@ -49,12 +49,13 @@
   overflow-x: auto;
   border-collapse: collapse;
 }
-.prose th, .prose td { padding: .5rem .75rem; border: 1px solid var(--border); text-align: left; }
-.prose th { background: var(--code-bg); }
+.prose th, .prose td { padding: .5rem .75rem; border: 0; border-bottom: 1px solid var(--border); text-align: left; }
+.prose th { background: var(--code-bg); border-bottom: var(--rule) solid var(--border); }
 
-.prose img { display: block; margin: 1.5em auto; border-radius: 6px; }
+/* 디자인 시스템 규칙: 사진은 흑백으로, 가운데 정렬 없이 왼쪽에 붙인다. */
+.prose img { display: block; margin: 1.5em 0; border-radius: 0; filter: grayscale(1) contrast(1.08); }
 
-.prose hr { border: 0; border-top: 1px solid var(--border); margin: 2em 0; }
+.prose hr { border: 0; border-top: var(--rule) solid var(--border); margin: 2em 0; }
 
 @media (min-width: 640px) {
   .post__title { font-size: 2.125rem; }

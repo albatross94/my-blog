@@ -1,37 +1,43 @@
+/* Modernist 디자인 시스템 토큰. 다크는 같은 구조로 직접 만든 변형이다. */
 :root {
-  --bg: #ffffff;
-  --fg: #1f2328;
-  --muted: #656d76;
-  --border: #e5e7eb;
-  --accent: #2563eb;
-  --code-bg: #f3f4f6;
-  --card-bg: #fafafa;
-  --font-sans: Pretendard, -apple-system, BlinkMacSystemFont, "Segoe UI", "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", sans-serif;
+  --bg: #f3f2f2;
+  --fg: #201e1d;
+  --muted: #605d5d;
+  /* 2px 굵은 구분선·테두리에 쓰는 선 색 */
+  --border: color-mix(in srgb, var(--fg) 40%, transparent);
+  --accent: #ec3013;
+  /* 본문 크기 텍스트는 강조색 그대로면 대비가 모자라 진한 단계를 쓴다 */
+  --accent-text: #ae1800;
+  --code-bg: #eae9e9;
+  --card-bg: #eae9e9;
+  --font-sans: Archivo, Pretendard, -apple-system, BlinkMacSystemFont, "Segoe UI", "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", sans-serif;
+  --font-heading-weight: 800;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "D2Coding", monospace;
+  --rule: 2px;
   color-scheme: light;
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #0f1115;
-    --fg: #e6e8eb;
-    --muted: #9aa3ad;
-    --border: #2a2f37;
-    --accent: #6ea8fe;
-    --code-bg: #1b1f27;
-    --card-bg: #151922;
+    --bg: #201e1d;
+    --fg: #f3f2f2;
+    --muted: #bab6b6;
+    --accent: #ff563c;
+    --accent-text: #ff7a63;
+    --code-bg: #2d2b2b;
+    --card-bg: #2d2b2b;
     color-scheme: dark;
   }
 }
 
 :root[data-theme="dark"] {
-  --bg: #0f1115;
-  --fg: #e6e8eb;
-  --muted: #9aa3ad;
-  --border: #2a2f37;
-  --accent: #6ea8fe;
-  --code-bg: #1b1f27;
-  --card-bg: #151922;
+  --bg: #201e1d;
+  --fg: #f3f2f2;
+  --muted: #bab6b6;
+  --accent: #ff563c;
+  --accent-text: #ff7a63;
+  --code-bg: #2d2b2b;
+  --card-bg: #2d2b2b;
   color-scheme: dark;
 }
 
@@ -51,10 +57,18 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-a { color: var(--accent); text-underline-offset: 3px; }
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-sans);
+  font-weight: var(--font-heading-weight);
+  letter-spacing: -0.01em;
+}
+
+a { color: var(--accent-text); text-underline-offset: 3px; }
 
 img { max-width: 100%; height: auto; }
 
 button { font: inherit; color: inherit; }
+
+::selection { background: color-mix(in srgb, var(--accent) 30%, transparent); }
 
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
