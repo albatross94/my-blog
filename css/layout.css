@@ -116,6 +116,8 @@ body:has(.post-list) #app { min-height: 0; }
   border: 1px solid var(--border);
   border-radius: .375rem;
 }
+.app-card + .app-card { margin-top: 1.5rem; }
+.app-card__frame--tall { height: 60rem; }
 .app-card__link {
   display: inline-flex;
   align-items: center;

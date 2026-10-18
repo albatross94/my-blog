@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>픽셀 아트 에디터</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="app__header">
+      <h1 class="app__title">픽셀 아트 에디터</h1>
+      <p class="app__desc">16x16 격자에 도트를 찍고 PNG로 저장하세요.</p>
+    </header>
+
+    <div class="editor">
+      <section class="canvas" id="grid" aria-label="그리기 격자 16x16"></section>
+
+      <section class="panel" aria-label="도구">
+        <div class="current">
+          <span class="current__label">현재 색</span>
+          <span class="current__preview" id="current" role="img" aria-label="현재 색: 검정"></span>
+          <span class="current__name" id="current-name">검정</span>
+        </div>
+
+        <div class="palette" id="palette" role="group" aria-label="색상 팔레트"></div>
+
+        <div class="tools">
+          <button type="button" class="btn btn--tool" id="eraser" aria-label="지우개" aria-pressed="false">지우개</button>
+          <button type="button" class="btn" id="clear" aria-label="전체 지우기">전체 지우기</button>
+          <button type="button" class="btn btn--primary" id="save" aria-label="PNG로 저장">PNG 저장</button>
+        </div>
+      </section>
+    </div>
+  </main>
+  <script type="module" src="ui.js"></script>
+</body>
+</html>
